@@ -256,21 +256,23 @@
 
     /* ---------- HERO ---------- */
 
+
     .hero {
-      /* image & layout */
-      background: url('https://manthangajjar.in/wp-content/uploads/2025/04/Best-Panning-Shot-Editors-1-1280x700.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: scroll;
+      background: url('https://manthangajjar.in/wp-content/uploads/2025/04/Best-Panning-Shot-Editors-1-1280x700.png') no-repeat center / cover;
+      background-attachment: fixed;
       min-height: 100vh;
-      overflow: auto;
       display: flex;
-      justify-content: center;
       align-items: center;
-  
-      /* phone-friendly */
-      padding: clamp(2rem, 20vw, 10rem);
-      text-align: center;
+      justify-content: center;
       color: #fff;
+      text-align: center;
+    }
+
+    /* ❷ – iOS fallback: turn it back to normal scrolling   */
+    @media (hover: none) and (pointer: coarse) and (-webkit-touch-callout: none) {
+      .hero {
+        background-attachment: scroll;
+      }
     }
 
     /* headline */
