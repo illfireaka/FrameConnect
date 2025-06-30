@@ -254,26 +254,24 @@
 
 
 
-    /* ---------- HERO ---------- */
+        /* ---------- HERO ---------- */
 
-
-    .hero {
-      background: url('https://manthangajjar.in/wp-content/uploads/2025/04/Best-Panning-Shot-Editors-1-1280x700.png') no-repeat center / cover;
-      background-attachment: fixed;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
+        /* 1 ▸ everybody gets the original parallax hero  */
+    .hero{
+      background: url('https://manthangajjar.in/wp-content/uploads/2025/04/Best-Panning-Shot-Editors-1-1280x700.png') no-repeat center/cover fixed;
+      /* …rest of your existing hero styles… */
     }
 
-    /* ❷ – iOS fallback: turn it back to normal scrolling   */
-    @media (hover: none) and (pointer: coarse) and (-webkit-touch-callout: none) {
-      .hero {
-        background-attachment: scroll;
+    /* 2 ▸ iOS Safari: override what it can’t do       */
+    @supports (-webkit-touch-callout: none) {
+      .hero{
+        background-attachment: scroll;   /* disable the fixed */
+        background-position: center top; /* adjust if needed  */
+        background-size: cover;          /* still fills width */
       }
     }
+
+  
 
     /* headline */
     .hero h1 {
